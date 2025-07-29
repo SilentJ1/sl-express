@@ -127,7 +127,7 @@ public class AliBasicPayHandler implements BasicPayHandler {
         refundRecord.setRefundMsg(JSONUtil.toJsonStr(refundResponse));
         boolean success = ResponseChecker.success(refundResponse);
         if (success) {
-            refundRecord.setRefundStatus(RefundStatusEnum.SUCCESS);
+            refundRecord.setRefundStatus(RefundStatusEnum.SENDING);
             return true;
         }
         throw new SLException(refundRecord.getRefundMsg(), TradingEnum.NATIVE_REFUND_FAIL.getCode(), TradingEnum.NATIVE_REFUND_FAIL.getStatus());
